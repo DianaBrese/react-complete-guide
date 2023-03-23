@@ -27,6 +27,8 @@ const Dummy_Expenses = [
 const App = () => {
   const [expenses, setExpenses] = useState(Dummy_Expenses);
   
+  const [buttonNewExpense, setButtonNewExpense] = useState(false)
+  
 
   const addExpenseHandler = (expense) => {
     setExpenses(prevExpenses => {
@@ -38,7 +40,7 @@ const App = () => {
 
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler} />
+      <NewExpense onAddExpense={addExpenseHandler} buttonNewExpense={buttonNewExpense} setButtonNewExpense={setButtonNewExpense} />
       <Expenses items={expenses} />
     </div>
   );
